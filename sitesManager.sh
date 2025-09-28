@@ -12,7 +12,7 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-if [ "$1" == "start" ]; then
+if [ "$1" == "block" ]; then
 # Loop through blocked sites and add them to hosts file
     for site in "${SITES[@]}"; do
         if grep -q "$site" /etc/hosts; then
@@ -23,7 +23,7 @@ if [ "$1" == "start" ]; then
         fi
     done
     echo "All sites have been blocked."
-elif [ "$1"  == "end" ]; then
+elif [ "$1"  == "unblock" ]; then
     # Loop through unblocked sites and remove them from hosts file
     for site in "${SITES[@]}"; do
         if grep -q $site /etc/hosts; then

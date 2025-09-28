@@ -1,53 +1,71 @@
-# Study Session Manager
+# Productivity Script
 
-A Python CLI tool that helps you maintain focused study sessions by automating distractions, timing sessions, and logging reflections.
+A friendly Python CLI tool built with Typer that helps you maintain focused study sessions by blocking distractions, timing sessions, and logging reflections.
 
 ## Features
 
-- **Preparation Timer**: 2-minute countdown to help you get into the zone
-- **Website Blocking**: Automatically blocks distracting sites during study sessions
-- **Session Timer**: Customizable study session duration with countdown display
-- **Reflection Logging**: Guided post-session questions saved to organized files
-- **Subject Organization**: Creates folders and files organized by study subject
+- **🎯 Interactive Study Mode**: Friendly prompts with rich console output
+- **⏱️ Preparation Timer**: 2-minute countdown to help you get into the zone
+- **🚫 Website Blocking**: Automatically blocks distracting sites during study sessions
+- **📊 Visual Progress**: Beautiful progress bars and timers using Rich
+- **📝 Reflection Logging**: Guided post-session questions saved to organized files
+- **📁 Subject Organization**: Creates folders and files organized by study subject
+- **🔗 Google Tasks Integration**: View your Google Tasks (optional)
 
 ## How It Works
 
-1. **Pre-Session**: Ask what subject you're studying, what you'll focus on, and session duration
-2. **Prep Time**: 2-minute timer to prepare and eliminate distractions
-3. **Study Session**: Blocks configured websites and runs your timed study session
-4. **Reflection**: Prompts questions about your session and saves responses to a file
-5. **Cleanup**: Unblocks websites when session ends
+1. **Pre-Session**: Interactive prompts ask what subject you're studying, focus area, and session duration
+2. **Prep Time**: 2-minute timer with progress bar to prepare and eliminate distractions
+3. **Study Session**: Blocks configured websites and runs your timed study session with visual countdown
+4. **Reflection**: Guided post-session questions with friendly prompts, saved to organized files
+5. **Cleanup**: Automatically unblocks websites when session ends
 
 ## Requirements
 
 - **Linux only** (uses `/etc/hosts` file modification)
-- Python 3.6+
+- Python 3.7+
 - `sudo` privileges (required for website blocking)
+- `mpv` (optional, for notification sounds)
 
 ## Installation
 
 1. Clone or download this repository
-2. Make the bash script executable:
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Make the bash script executable:
    ```bash
    chmod +x sitesManager.sh
-   ```
-3. Run the script:
-   ```bash
-   python3 index.py
    ```
 
 ## Usage
 
-Simply run the main script and follow the prompts:
+The tool now uses a friendly CLI interface with commands:
 
+### Start a Study Session
 ```bash
-python3 index.py
+python3 index.py study
 ```
 
-The tool will ask you:
-- What subject you want to focus on
-- What specifically you'll work on
-- How long your session should last (in minutes)
+### View Google Tasks
+```bash
+python3 index.py tasks
+```
+
+### Get Help
+```bash
+python3 index.py --help
+```
+
+### Study Mode Features
+When you run the study command, the tool will:
+- Ask you what subject you want to focus on
+- Ask what specifically you'll work on  
+- Ask how long your session should last (in minutes)
+- Provide a beautiful preparation timer
+- Show progress during your study session
+- Guide you through reflection questions
 
 ### File Organization
 

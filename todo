@@ -1,0 +1,7 @@
+[x] Use the bash to block certain domains when you are in your study sessions
+[x] Create a folder once you have the subject
+[x] Make a pre sessions so you can get into the zone and then start the session
+[] The fileNames should be have 01 02 03 and so on so they don't collapse with each others
+[] modify the bash script to make the variable names 'temp' to avoid deleting other variables in etc file
+[] Add this script to run in either as an alias or a script to run it or both
+[x] Add sounds and Typer Writer effect in the background

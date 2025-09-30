@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from datetime import date
-import subprocess
 from pathlib import Path
 from rich.console import Console
 from rich.prompt import Prompt, IntPrompt, Confirm

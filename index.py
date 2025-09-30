@@ -3,9 +3,9 @@
 Productivity Script - A friendly CLI tool for focused study sessions
 """
 import typer
+from rich.prompt import Prompt
 from rich.console import Console
 from rich.panel import Panel
-from rich.prompt import Prompt
 from features.terminal.util import execute_bash_blocking_script
 from features.terminal.index import start_study_mode
 from features.google.index import get_tasks
@@ -68,13 +68,8 @@ def main(ctx: typer.Context):
             border_style="green"
         ))
         
-        # Present dropdown menu for action selection
-        action = Prompt.ask(
-            "\n[bold]What would you like to do?[/bold]",
-            choices=["study", "tasks", "exit"],
-            default="study",
-            case_sensitive=False
-        )
+        
+        action = Prompt.ask('What would you like to do ?')
         
         if action.lower() == "study":
             start_study_mode()
@@ -84,7 +79,7 @@ def main(ctx: typer.Context):
                 border_style="blue"
             ))
             try:
-                demo_google_tasks_api()
+                get_tasks()
             except Exception as e:
                 console.print(f"[red]Error accessing Google Tasks: {e}[/red]")
                 console.print("[yellow]Make sure you have set up Google API authentication.[/yellow]")
@@ -93,7 +88,6 @@ def main(ctx: typer.Context):
             raise typer.Exit()
 
 if __name__ == "__main__":
-    print('Starting app')
     tasks = get_tasks()
     if len(tasks) > 0:
         console.print(Panel.fit(

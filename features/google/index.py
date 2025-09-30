@@ -19,7 +19,6 @@ def get_task_lists():
 
 def get_tasks():
     """Get tasks from a specific task list."""
-
  # Get task lists
     task_lists = get_task_lists()
     
@@ -46,14 +45,7 @@ def get_tasks():
         
         if not items:
             print('No tasks found.')
-            return []
-        
-        print('Tasks:')
-        for item in items:
-            title = item['title']
-            status = item.get('status', 'needsAction')
-            print(f"- {title} (Status: {status})")
-        
+            return []  
         return items
     except Exception as error:
         print(f'An error occurred: {error}')
